@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffd6e7, #d9e7ff);
+        }
+
+        /* =========================
+           OPENING
+        ========================= */
+
+        .opening {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background: linear-gradient(135deg, #ff7eb3, #8e9eff);
+            transition: 1s;
+        }
+
+        .opening.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .opening-box {
+            color: white;
+        }
+
+        .opening-box h1 {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .opening-box p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .open-button {
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            background: white;
+            color: #ff4f81;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .open-button:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            min-height: 100vh;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 700px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           CAKE
+        ========================= */
+
+        .cake {
+            font-size: 90px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        h1 {
+            font-size: 55px;
+            color: #ff4081;
+            margin: 15px 0;
+            animation: fadeIn 2s;
+        }
+
+        .name {
+            font-size: 28px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            background: rgba(255,255,255,0.85);
+            padding: 30px;
+            border-radius: 20px;
+            line-height: 1.8;
+            font-size: 18px;
+            color: #555;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+
+        /* =========================
+           FOTO
+        ========================= */
+
+        .photo {
+            margin: 35px auto;
+        }
+
+        .photo img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+
+            border-radius: 50%;
+            border: 8px solid white;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .gift-button {
+            margin-top: 30px;
+
+            border: none;
+            padding: 15px 30px;
+
+            border-radius: 30px;
+
+            background: #ff4081;
+            color: white;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .gift-button:hover {
+            transform: scale(1.1);
+            background: #e91e63;
+        }
+
+
+        /* =========================
+           SURPRISE
+        ========================= */
+
+        .surprise {
+            display: none;
+
+            margin-top: 30px;
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            animation: muncul 1s;
+        }
+
+        .surprise.show {
+            display: block;
+        }
+
+        .surprise h2 {
+            color: #ff4081;
+            margin-bottom: 15px;
+        }
+
+        .surprise p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+
+        /* =========================
+           BALON
+        ========================= */
+
+        .balloon {
+            position: fixed;
+            bottom: -100px;
+
+            font-size: 50px;
+
+            animation: terbang 8s linear infinite;
+
+            z-index: -1;
+        }
+
+        .b1 {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .b2 {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .b3 {
+            left: 55%;
+            animation-delay: 4s;
+        }
+
+        .b4 {
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        @keyframes terbang {
+            0% {
+                bottom: -100px;
+            }
+
+            100% {
+                bottom: 110%;
+                transform: rotate(15deg);
+            }
+        }
+
+
+        /* =========================
+           HEART
+        ========================= */
+
+        .heart {
+            position: fixed;
+            bottom: -50px;
+
+            font-size: 25px;
+
+            animation: heartUp 6s linear infinite;
+
+            z-index: -1;
+        }
+
+        @keyframes heartUp {
+            0% {
+                bottom: -50px;
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           KONFETI
+        ========================= */
+
+        .confetti {
+            position: fixed;
+
+            width: 10px;
+            height: 10px;
+
+            top: -20px;
+
+            animation: jatuh 4s linear forwards;
+
+            z-index: 1000;
+        }
+
+        @keyframes jatuh {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 50px;
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .opening-box h1 {
+                font-size: 32px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .name {
+                font-size: 22px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+
+            .photo img {
+                width: 180px;
+                height: 180px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         OPENING
+    ========================= -->
+
+    <div class="opening" id="opening">
+
+        <div class="opening-box">
+
+            <h1>🎁 Ada Sesuatu Untukmu...</h1>
+
+            <p>
+                Klik tombol di bawah untuk membukanya ❤️
+            </p>
+
+            <button class="open-button" onclick="bukaWebsite()">
+                💖 Buka
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         BALON
+    ========================= -->
+
+    <div class="balloon b1">🎈</div>
+    <div class="balloon b2">🎈</div>
+    <div class="balloon b3">🎈</div>
+    <div class="balloon b4">🎈</div>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="main">
+
+        <div class="content">
+
+
+            <!-- KUE -->
+
+            <div class="cake">
+                🎂
+            </div>
+
+
+            <!-- JUDUL -->
+
+            <h1>
+                Happy Birthday! 🎉
+            </h1>
+
+
+            <!-- NAMA -->
+
+            <div class="name">
+                <strong>SAYANG</strong> ❤️
+            </div>
+
+
+            <!-- FOTO -->
+
+            <div class="photo">
+
+                <img src="foto.jpg.jpeg" alt="Foto">
+
+            </div>
+
+
+            <!-- PESAN -->
+
+            <div class="message">
+
+                <p>
+                    Selamat ulang tahun! 🎂🎉
+                </p>
+
+                <p>
+                    Semoga di usia yang baru ini,
+                    kamu selalu diberikan kesehatan,
+                    kebahagiaan, dan keberhasilan.
+                </p>
+
+                <p>
+                    Semoga semua impian dan harapan
+                    yang kamu punya bisa tercapai.
+                    Tetap menjadi pribadi yang baik,
+                    kuat, dan selalu tersenyum. ❤️
+                </p>
+
+                <p>
+                    Sekali lagi...
+                    <strong>Happy Birthday! 🎉🎂</strong>
+                </p>
+
+            </div>
+
+
+            <!-- HADIAH -->
+
+            <button class="gift-button" onclick="bukaHadiah()">
+                🎁 Buka Hadiah
+            </button>
+
+
+            <!-- SURPRISE -->
+
+            <div class="surprise" id="surprise">
+
+                <h2>
+                    🎉 Surprise! 🎉
+                </h2>
+
+                <p>
+                    Ini pesan rahasia khusus untukmu ❤️
+                </p>
+
+                <p>
+                    Terima kasih sudah menjadi seseorang
+                    yang sangat berarti.
+                    Semoga hari ulang tahunmu kali ini
+                    menjadi salah satu hari yang paling
+                    berkesan.
+                </p>
+
+                <p>
+                    Jangan lupa bahagia hari ini! 😊
+                </p>
+
+                <h2>
+                    ❤️🎂🎉
+                </h2>
+
+            </div>
+
+
+            <footer>
+
+                Dibuat dengan ❤️ khusus untukmu
+
+            </footer>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         MUSIK
+    ========================= -->
+
+    <audio id="musik" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <script>
+
+        /* =========================
+           BUKA WEBSITE
+        ========================= */
+
+        function bukaWebsite() {
+
+            document
+                .getElementById("opening")
+                .classList.add("hide");
+
+            document
+                .getElementById("musik")
+                .play();
+
+            buatKonfeti();
+
+        }
+
+
+        /* =========================
+           BUKA HADIAH
+        ========================= */
+
+        function bukaHadiah() {
+
+            document
+                .getElementById("surprise")
+                .classList.add("show");
+
+            buatKonfeti();
+
+        }
+
+
+        /* =========================
+           KONFETI
+        ========================= */
+
+        function buatKonfeti() {
+
+            for (let i = 0; i < 100; i++) {
+
+                const confetti =
+                    document.createElement("div");
+
+                confetti.classList.add("confetti");
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+                confetti.style.backgroundColor =
+                    warnaAcak();
+
+                confetti.style.animationDuration =
+                    (Math.random() * 3 + 2) + "s";
+
+                document.body.appendChild(confetti);
+
+
+                setTimeout(() => {
+
+                    confetti.remove();
+
+                }, 5000);
+
+            }
+
+        }
+
+
+        /* =========================
+           WARNA ACAK
+        ========================= */
+
+        function warnaAcak() {
+
+            const warna = [
+                "#ff4081",
+                "#ffeb3b",
+                "#2196f3",
+                "#4caf50",
+                "#ff9800",
+                "#9c27b0"
+            ];
+
+            return warna[
+                Math.floor(Math.random() * warna.length)
+            ];
+
+        }
+
+
+        /* =========================
+           HATI OTOMATIS
+        ========================= */
+
+        function buatHati() {
+
+            const heart =
+                document.createElement("div");
+
+            heart.classList.add("heart");
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (Math.random() * 3 + 4) + "s";
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 7000);
+
+        }
+
+
+        setInterval(buatHati, 1000);
+
+    </script>
+
+</body>
+</html>
+```
